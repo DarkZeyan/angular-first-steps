@@ -1,0 +1,54 @@
+<!--
+
+  En Angular se debe priorizar lo mas posible el one way data binding
+  Normalmente se trabaja de manera defecto con two way data binding
+
+  El data binding es la forma en la que se comunican los componentes
+  de Angular con el HTML
+
+  -->
+
+<!--
+  La interpolacion nos permite utilizar cualquier expresion de JavaScript
+ -->
+
+<h1>{{name}}</h1>
+
+
+<dl>
+  <td>Nombre:</td>
+  <dd> {{name}}</dd>
+
+
+  <td>Edad:</td>
+  <dd> {{age}}</dd>
+
+  <td>Método:</td>
+  <dd> {{ getHeroDescription()}}</dd>
+
+  <td>Capitalizado:</td>
+  <dd> {{capitalizedName}}</dd>
+
+</dl>
+
+
+<button (click)="changeHero()"
+  *ngIf="name !== 'Spiderman'"
+  class="btn btn-primary mx-2">
+  Cambiar nombre
+</button>
+
+
+<button
+  *ngIf="age !== 25"
+  (click)="changeAge()"
+  class="btn btn-primary">
+  Cambiar edad
+</button>
+
+<button
+  (click)="resetValues()"
+  class="btn btn-danger mx-2"
+  >
+  Reset
+</button>

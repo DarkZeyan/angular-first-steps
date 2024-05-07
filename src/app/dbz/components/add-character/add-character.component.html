@@ -1,0 +1,41 @@
+<h4>Agregar personaje</h4>
+<!-- para el submit de los formularios en angular
+  Se utiliza el evento propio de Angular ngSubmit que previene
+  la recarga de la pagina y permite la ejecucion de la logica
+
+  Los submits se manejan propiamente con el formulario y no con el boton
+-->
+<form action="" class="row" (ngSubmit)="emitCharacter()">
+    <!-- Si yo quisiera que el value apunte a una propiedad
+      Puedo encapsularlo con los corchetes para evaluarlo con una propiedad.
+
+      Los parentesis son para asociar eventos y los corchetes para atributos
+    -->
+
+      <!--
+        Se recomienda utilizar la directiva ngModel para controlar los formularios
+        para poder utilizar ngModel se debe de importar el modulo FormsModule
+      -->
+  <input
+  class="form-control mb-2"
+  [(ngModel)]="character.name"
+  name="name"
+  type="text"
+  placeholder="Nombre del personaje">
+
+  <input
+  class="form-control mb-2"
+  [(ngModel)]="character.power"
+  name="power"
+  type="number"
+  placeholder="Poder">
+
+  <button type="submit" class="btn btn-primary">
+    Agregar
+  </button>
+
+  <!-- <pre>
+    {{ character | json}}
+  </pre> -->
+
+</form>

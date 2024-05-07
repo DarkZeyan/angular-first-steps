@@ -1,0 +1,37 @@
+<h3> Listado de Heroes</h3>
+<!-- Rellenado de elementos con un componente -->
+<!-- <ul class="mt-2 list-group">
+  <li class="list-group-item">Spiderman</li>
+  <li class="list-group-item">Ironman</li>
+  <li class="list-group-item">Hulk</li>
+  <li class="list-group-item">Thor</li>
+</ul> -->
+
+
+<div *ngIf="deletedHero; else withoutDeletions">
+
+  <h3>Heroe eliminado: <small class="text-danger"> {{deletedHero}} </small></h3>
+</div>
+
+<ng-template #withoutDeletions>
+
+  <h3>
+    No hay heroes eliminados
+  </h3>
+</ng-template>
+<button
+  *ngIf="heroNames.length > 0"
+  (click)="removeLastHero()"
+  class="btn btn-outline-danger">
+  Eliminar ultimo heroe
+</button>
+
+
+<ul class="mt-2 list-group">
+
+  <!-- Angular con el ngFor genera el mismo elemento HTML con todas
+  sus piezas internas y crear un template HTML basado en el numero
+  elementos de la lista y el ciclo  -->
+  <li *ngFor="let hero of heroNames"
+    class="list-group-item">{{hero}}</li>
+</ul>
